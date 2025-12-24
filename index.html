@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Adopt a Pet</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+
+<h1>Adopt a Pet 🐾</h1>
+
+<div class="pets-container">
+
+<?php while($pet = mysqli_fetch_assoc($result)) { ?>
+  <div class="pet-card">
+    <img src="../assets/images/<?php echo $pet['image']; ?>">
+    <h3><?php echo $pet['name']; ?></h3>
+    <p><?php echo $pet['description']; ?></p>
+    <p class="cute">"Adopt me, I’m waiting for you 🥺"</p>
+
+    <a href="../adopt/adopt.php?pet_id=<?php echo $pet['pet_id']; ?>">
+      <button>Adopt Me</button>
+    </a>
+  </div>
+<?php } ?>
+</div>
+</body>
+</html>
